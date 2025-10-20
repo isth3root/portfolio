@@ -1,1 +1,11 @@
-@import "tailwindcss";
+import "tailwindcss";
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/en/Inter.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Estedad';
+  src: url('./fonts/fa/Estedad.ttf') format('truetype');
+}
