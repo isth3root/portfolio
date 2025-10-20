@@ -1,43 +1,29 @@
-import React from "react"
-import { Helmet, HelmetProvider } from "react-helmet-async"
-import Header from "./components/Header"
-import TechUserSection from "./components/TechUserSection"
-import NonTechUserSection from "./components/NonTechUserSection"
-import ProjectsSection from "./components/ProjectsSection"
-import SmoothScroll from "./components/SmoothScroll"
-import { useLanguage } from "./contexts/LanguageContext"
+import React from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
-  const { lang } = useLanguage()
-
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>
-          {lang === "fa"
-            ? "محمدامین سیدی - توسعه‌دهنده وب"
-            : "Mohamad Amin Seyedi - Web Developer"}
-        </title>
-      </Helmet>
-      <div
-        className={`bg-gray-900 text-white min-h-screen flex flex-col ${
-          lang === "fa" ? "font-persian" : "font-sans"
-        }`}
-        dir={lang === "fa" ? "rtl" : "ltr"}
-      >
-        <SmoothScroll />
+    <LanguageProvider>
+      <div className="min-h-screen">
         <Header />
-        <main className="flex-grow">
-          <TechUserSection />
-          <NonTechUserSection />
-          <ProjectsSection />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
         </main>
-        <footer className="p-4 bg-gray-800 text-center">
-          <p>&copy; 2024 Mohamad Amin Seyedi</p>
-        </footer>
+        <Footer />
       </div>
-    </HelmetProvider>
-  )
-}
+    </LanguageProvider>
+  );
+};
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import "tailwindcss";
+@import "tailwindcss";
 
 @font-face {
   font-family: 'Inter';
@@ -8,4 +8,26 @@ import "tailwindcss";
 @font-face {
   font-family: 'Estedad';
   src: url('./fonts/fa/Estedad.ttf') format('truetype');
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-estedad {
+    font-family: 'Estedad', sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+[dir="rtl"] body {
+  font-family: 'Estedad', sans-serif;
 }
