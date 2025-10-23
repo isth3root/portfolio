@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <div className="text-white font-bold">
+            <div className="text-white font-bold h-20">
               <FallingText
                 text={translations.name[language]}
                 highlightWords={['محمدامین', 'Mohamad', 'Amin', 'Seyedi']}
@@ -87,6 +87,7 @@ const Hero: React.FC = () => {
               className={`text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}
               delay={30}
               duration={0.8}
+              splitType={language === 'fa' ? 'words' : 'chars'}
             />
           </motion.div>
 

@@ -41,7 +41,7 @@ const FallingText: React.FC<FallingTextProps> = ({
           ${word}
         </span>`;
             })
-            .join(' ');
+            .join('&nbsp;');
 
         textRef.current.innerHTML = newHTML;
     }, [text, highlightWords]);

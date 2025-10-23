@@ -93,7 +93,7 @@ const SplitText: React.FC<SplitTextProps> = ({
                 linesClass: 'split-line',
                 wordsClass: 'split-word',
                 charsClass: 'split-char',
-                reduceWhiteSpace: false,
+                reduceWhiteSpace: true,
                 onSplit: (self: GSAPSplitText) => {
                     assignTargets(self);
                     return gsap.fromTo(

@@ -74,7 +74,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
                 const segmenter = new Intl.Segmenter('en', { granularity: 'grapheme' });
                 return Array.from(segmenter.segment(text), segment => segment.segment);
             }
-            return Array.from(text);
+            return Array.from(text).map(char => char === ' ' ? '\u00A0' : char);
         };
 
         const elements = useMemo(() => {
