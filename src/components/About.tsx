@@ -124,72 +124,72 @@ const About: React.FC = () => {
           viewport={{ once: true }}
           className="mt-16"
         >
-          <ScrollFloat>
-            {language === 'fa' ? 'سفر حرفه‌ای من' : 'My Professional Journey'}
-          </ScrollFloat>
-
-          <div className="mt-8">
-            <TrueFocus
-              sentence={language === 'fa' ? 'توسعه وب خلاقانه و مدرن' : 'Creative Modern Web Development'}
-              manualMode={false}
-              blurAmount={3}
-              borderColor="rgb(168, 85, 247)"
-              glowColor="rgba(168, 85, 247, 0.4)"
-              animationDuration={0.8}
-              pauseBetweenAnimations={2}
-            />
+          <div className="text-center mb-8">
+            <ScrollFloat>
+              <h2 className={`text-3xl font-bold text-gray-900 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
+                {language === 'fa' ? 'سفر حرفه‌ای من' : 'My Professional Journey'}
+              </h2>
+            </ScrollFloat>
+            <div className="mt-4">
+              <TrueFocus
+                sentence={language === 'fa' ? 'توسعه وب خلاقانه و مدرن' : 'Creative Modern Web Development'}
+                manualMode={false}
+                blurAmount={3}
+                borderColor="rgb(168, 85, 247)"
+                glowColor="rgba(168, 85, 247, 0.4)"
+                animationDuration={0.8}
+                pauseBetweenAnimations={2}
+              />
+            </div>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-500"></div>
+              <motion.div
+                className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 to-purple-500"
+                style={{ height: '0%' }}
+                whileInView={{ height: '100%' }}
+                transition={{ duration: 2, ease: 'easeInOut' }}
+                viewport={{ once: true }}
+              />
 
               <div className="space-y-8">
-                <motion.div
-                  initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}
-                >
-                  <div className={`w-1/2 ${isRTL ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                      <h4 className={`text-lg font-semibold text-gray-900 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        {language === 'fa' ? 'شروع برنامه‌نویسی' : 'Started Programming'}
-                      </h4>
-                      <p className={`text-gray-600 text-sm ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        {language === 'fa' ? 'یادگیری HTML، CSS و JavaScript' : 'Learning HTML, CSS and JavaScript'}
-                      </p>
+                {[
+                  {
+                    year: '2020',
+                    title: language === 'fa' ? 'شروع برنامه‌نویسی' : 'Started Programming',
+                    desc: language === 'fa' ? 'یادگیری HTML، CSS و JavaScript' : 'Learning HTML, CSS and JavaScript'
+                  },
+                  {
+                    year: '2023',
+                    title: language === 'fa' ? 'توسعه‌دهنده فول‌استک' : 'Full-Stack Developer',
+                    desc: language === 'fa' ? 'کار با React، Node.js و پروژه‌های حرفه‌ای' : 'Working with React, Node.js and professional projects'
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, x: (index % 2 === 0 ? -1 : 1) * (isRTL ? -30 : 30) }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 * index }}
+                    viewport={{ once: true }}
+                    className={`flex items-center ${index % 2 !== 0 ? (isRTL ? 'flex-row-reverse' : 'flex-row-reverse') : ''}`}
+                  >
+                    <div className={`w-1/2 ${index % 2 === 0 ? (isRTL ? 'text-right pr-8' : 'text-left pl-8') : (isRTL ? 'text-left pl-8' : 'text-right pr-8')}`}>
+                      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+                        <h4 className={`text-lg font-semibold text-gray-900 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
+                          {item.title}
+                        </h4>
+                        <p className={`text-gray-600 text-sm ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg"></div>
-                  <div className={`w-1/2 ${isRTL ? 'text-left pl-8' : 'text-right pr-8'}`}>
-                    <span className={`text-sm text-gray-500 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>2020</span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className={`flex items-center ${isRTL ? '' : 'flex-row-reverse'}`}
-                >
-                  <div className={`w-1/2 ${isRTL ? 'text-left pl-8' : 'text-right pr-8'}`}>
-                    <span className={`text-sm text-gray-500 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>2023</span>
-                  </div>
-                  <div className="w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-lg"></div>
-                  <div className={`w-1/2 ${isRTL ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                      <h4 className={`text-lg font-semibold text-gray-900 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        {language === 'fa' ? 'توسعه‌دهنده فول‌استک' : 'Full-Stack Developer'}
-                      </h4>
-                      <p className={`text-gray-600 text-sm ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        {language === 'fa' ? 'کار با React، Node.js و پروژه‌های حرفه‌ای' : 'Working with React, Node.js and professional projects'}
-                      </p>
+                    <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                    <div className={`w-1/2 ${index % 2 === 0 ? (isRTL ? 'text-left pl-8' : 'text-right pr-8') : (isRTL ? 'text-right pr-8' : 'text-left pl-8')}`}>
+                      <span className={`text-sm text-gray-500 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>{item.year}</span>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>

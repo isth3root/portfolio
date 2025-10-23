@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../utils/translations';
-import FallingText from './bit/FallingText';
 import StarBorder from './bit/StarBorder';
 import RotatingText from './bit/RotatingText';
 import SplitText from './bit/SplitText';
@@ -48,12 +47,13 @@ const Hero: React.FC = () => {
             className="mb-8"
           >
             <div className="text-white font-bold h-20">
-              <FallingText
+              <SplitText
                 text={translations.name[language]}
-                highlightWords={['محمدامین', 'Mohamad', 'Amin', 'Seyedi']}
-                trigger="auto"
-                backgroundColor="transparent"
-                fontSize="4rem"
+                tag="h1"
+                className={`text-5xl md:text-7xl font-bold text-white ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}
+                delay={50}
+                duration={0.8}
+                splitType="chars"
               />
             </div>
           </motion.div>
@@ -62,17 +62,17 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-8"
+            className="mb-8 flex justify-center items-center"
           >
+            <span className={`text-xl md:text-2xl text-purple-200 mr-2 ${language === 'fa' ? 'font-estedad' : 'font-inter'} font-light`}>
+              {language === 'fa' ? 'توسعه‌دهنده' : 'Developer'}
+            </span>
             <RotatingText
               texts={['Backend', 'Frontend', 'Fullstack']}
               className={`text-xl md:text-2xl text-purple-200 ${language === 'fa' ? 'font-estedad' : 'font-inter'} font-light`}
               rotationInterval={3000}
               staggerDuration={50}
             />
-            <span className={`text-xl md:text-2xl text-purple-200 ml-2 ${language === 'fa' ? 'font-estedad' : 'font-inter'} font-light`}>
-              {language === 'fa' ? 'توسعه‌دهنده' : 'Developer'}
-            </span>
           </motion.div>
 
           <motion.div

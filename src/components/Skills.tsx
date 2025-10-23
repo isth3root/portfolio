@@ -4,15 +4,32 @@ import { useLanguage } from '../hooks/useLanguage'
 import { translations } from '../utils/translations'
 import ScrollReveal from './bit/ScrollReveal'
 
+import { Code, Database, AppWindow, GitMerge, BrainCircuit } from 'lucide-react'
+
 const Skills: React.FC = () => {
   const { language, isRTL } = useLanguage()
 
-
   const skillCategories = {
-    frontend: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
-    state: ['React Context', 'Redux', 'Zustand'],
-    backend: ['Node.js', 'Express', 'Bun', 'SQL', 'MongoDB', 'Mongoose', 'Drizzle'],
-    tools: ['Git', 'Axios']
+    frontend: {
+      icon: AppWindow,
+      title: language === 'fa' ? 'فرانت‌اند' : 'Frontend',
+      skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS']
+    },
+    state: {
+      icon: BrainCircuit,
+      title: language === 'fa' ? 'مدیریت وضعیت' : 'State Management',
+      skills: ['React Context', 'Redux', 'Zustand']
+    },
+    backend: {
+      icon: Database,
+      title: language === 'fa' ? 'بک‌اند' : 'Backend',
+      skills: ['Node.js', 'Express', 'Bun', 'SQL', 'MongoDB', 'Mongoose', 'Drizzle']
+    },
+    tools: {
+      icon: GitMerge,
+      title: language === 'fa' ? 'ابزارها' : 'Tools',
+      skills: ['Git', 'Axios']
+    }
   }
 
   return (
@@ -21,7 +38,6 @@ const Skills: React.FC = () => {
       className={`py-20 bg-gradient-to-br from-slate-50 to-gray-100 ${isRTL ? 'rtl' : 'ltr'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -32,33 +48,28 @@ const Skills: React.FC = () => {
           <ScrollReveal>{translations.skillsTitle[language]}</ScrollReveal>
         </motion.div>
 
-        {/* Skill Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {Object.entries(skillCategories).map(([category, categorySkills], categoryIndex) => (
+        <div className="grid md:grid-cols-2 gap-8">
+          {Object.values(skillCategories).map((category, categoryIndex) => (
             <motion.div
-              key={category}
+              key={category.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20"
+              className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-shadow"
             >
-              <h3
-                className={`text-lg font-semibold text-gray-800 mb-4 capitalize ${language === 'fa' ? 'font-estedad' : 'font-inter'
-                  }`}
-              >
-                {category === 'frontend' &&
-                  (language === 'fa' ? 'فرانت‌اند' : 'Frontend')}
-                {category === 'state' &&
-                  (language === 'fa' ? 'مدیریت وضعیت' : 'State Management')}
-                {category === 'backend' &&
-                  (language === 'fa' ? 'بک‌اند' : 'Backend')}
-                {category === 'tools' &&
-                  (language === 'fa' ? 'ابزارها' : 'Tools')}
-              </h3>
+              <div className="flex items-center mb-4">
+                <category.icon className="w-8 h-8 text-purple-600" />
+                <h3
+                  className={`text-xl font-semibold text-gray-800 ml-3 ${language === 'fa' ? 'font-estedad' : 'font-inter'
+                    }`}
+                >
+                  {category.title}
+                </h3>
+              </div>
 
               <div className="flex flex-wrap gap-2">
-                {categorySkills.map((skill, index) => (
+                {category.skills.map((skill, index) => (
                   <motion.div
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -78,7 +89,6 @@ const Skills: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   )
