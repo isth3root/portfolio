@@ -1,10 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../hooks/useLanguage'
-import { translations } from '../utils/translations'
-import ScrollReveal from './bit/ScrollReveal'
+import SplitText from './bit/SplitText'
 
-import { Code, Database, AppWindow, GitMerge, BrainCircuit } from 'lucide-react'
+import { Database, AppWindow, GitMerge, BrainCircuit } from 'lucide-react'
 
 const Skills: React.FC = () => {
   const { language, isRTL } = useLanguage()
@@ -45,7 +44,9 @@ const Skills: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <ScrollReveal>{translations.skillsTitle[language]}</ScrollReveal>
+          <h2 className='text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold'>
+           مهارت ها
+          </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -61,14 +62,13 @@ const Skills: React.FC = () => {
               <div className="flex items-center mb-4">
                 <category.icon className="w-8 h-8 text-purple-600" />
                 <h3
-                  className={`text-xl font-semibold text-gray-800 ml-3 ${language === 'fa' ? 'font-estedad' : 'font-inter'
-                    }`}
+                  className={`text-xl font-semibold text-gray-800 ml-3 font-estedad text-center`}
                 >
                   {category.title}
                 </h3>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2" dir='ltr'>
                 {category.skills.map((skill, index) => (
                   <motion.div
                     key={skill}
@@ -82,7 +82,16 @@ const Skills: React.FC = () => {
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="px-3 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-sm font-medium shadow-md hover:shadow-lg transition-all duration-200 cursor-default"
                   >
-                    {skill}
+                    <SplitText
+                      text={skill}
+                      tag="span"
+                      className="text-white"
+                      delay={50}
+                      duration={0.6}
+                      splitType="chars"
+                      from={{ opacity: 0, y: 20 }}
+                      to={{ opacity: 1, y: 0 }}
+                    />
                   </motion.div>
                 ))}
               </div>

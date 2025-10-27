@@ -1,30 +1,23 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import type { Language } from '../types';
+import React, { createContext, useContext, useEffect } from 'react';
 
 interface LanguageContextType {
-  language: Language;
-  toggleLanguage: () => void;
+  language: 'fa';
   isRTL: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('fa'); // Default to Persian
-
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'fa' ? 'en' : 'fa');
-  };
-
-  const isRTL = language === 'fa';
+  const language = 'fa';
+  const isRTL = true;
 
   useEffect(() => {
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
-  }, [language, isRTL]);
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'fa';
+  }, []);
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, isRTL }}>
+    <LanguageContext.Provider value={{ language, isRTL }}>
       {children}
     </LanguageContext.Provider>
   );

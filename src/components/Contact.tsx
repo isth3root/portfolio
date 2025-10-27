@@ -1,40 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '../hooks/useLanguage';
-import { translations } from '../utils/translations';
 import { Mail, Phone, MessageCircle, Send } from 'lucide-react';
-import StarBorder from './bit/StarBorder';
-import ScrollReveal from './bit/ScrollReveal';
 
 const Contact: React.FC = () => {
-  const { language, isRTL } = useLanguage();
 
   const contactMethods = [
     {
       icon: Mail,
-      label: language === 'fa' ? 'ایمیل' : 'Email',
-      value: 'contact@example.com',
-      href: 'mailto:contact@example.com',
+      label: 'ایمیل',
+      value: 'itssheesh0.com',
+      href: 'mailto:itssheesh0@gmail.com',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Phone,
-      label: language === 'fa' ? 'تلفن' : 'Phone',
-      value: '+98 123 456 7890',
-      href: 'tel:+981234567890',
+      label: 'تلفن',
+      value: '09104056429',
+      href: 'tel:+989104056429',
       color: 'from-green-500 to-emerald-500'
     },
     {
       icon: MessageCircle,
-      label: language === 'fa' ? 'واتس‌اپ' : 'WhatsApp',
-      value: language === 'fa' ? 'پیام دهید' : 'Send Message',
+      label: 'واتس اپ',
+      value: 'پیام دهید',
       href: 'https://wa.me/981234567890',
       color: 'from-purple-500 to-pink-500'
     }
   ];
 
   return (
-    <section id="contact" className={`py-20 bg-gradient-to-br from-slate-900 to-slate-800 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <section id="contact" className={`py-20 bg-gradient-to-br from-slate-900 to-slate-800`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,11 +38,11 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <ScrollReveal>
-            {translations.contactTitle[language]}
-          </ScrollReveal>
-          <p className={`text-gray-400 text-lg mt-4 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-            {language === 'fa' ? 'آماده همکاری هستیم' : 'Ready to collaborate'}
+          <h2 className='text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold text-white'>
+            تماس با من
+          </h2>
+          <p className={`text-gray-400 text-lg mt-4 'font-estedad'`}>
+            آماده همکاری هستم
           </p>
         </motion.div>
 
@@ -59,8 +54,8 @@ const Contact: React.FC = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-12">
-            <p className={`text-lg text-gray-300 mb-8 leading-relaxed ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-              {translations.contactText[language]}
+            <p className={`text-lg text-gray-300 mb-8 leading-relaxed 'font-estedad'`}>
+              اگر نیاز به وب‌سایت دارید، من می‌توانم هر نوع وب‌سایتی برای شما بسازم. از وب‌سایت‌های ساده گرفته تا اپلیکیشن‌های پیچیده وب.
             </p>
           </div>
 
@@ -77,25 +72,20 @@ const Contact: React.FC = () => {
                   whileHover={{ y: -5 }}
                   className="group"
                 >
-                  <StarBorder
-                    as="a"
+                  <a
                     href={method.href}
-                    color={`rgb(255 255 255 / 0.1)`}
-                    speed="3s"
-                    className="block w-full"
+                    className="block w-full p-6 text-center bg-black text-white rounded-lg border border-gray-800 hover:bg-gray-900 hover:border-gray-700 transition-all duration-300 hover:shadow-lg"
                   >
-                    <div className="p-6 text-center">
-                      <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${method.color} mb-4`}>
-                        <IconComponent className="h-6 w-6 text-white" />
-                      </div>
-                      <h3 className={`text-lg font-semibold text-white mb-2 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        {method.label}
-                      </h3>
-                      <p className={`text-gray-400 text-sm ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        {method.value}
-                      </p>
+                    <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${method.color} mb-4`}>
+                      <IconComponent className="h-6 w-6 text-white" />
                     </div>
-                  </StarBorder>
+                    <h3 className={`text-lg font-semibold mb-2 font-estedad`}>
+                      {method.label}
+                    </h3>
+                    <p className={`text-gray-400 text-sm font-estedad`}>
+                      {method.value}
+                    </p>
+                  </a>
                 </motion.div>
               );
             })}
@@ -118,41 +108,12 @@ const Contact: React.FC = () => {
 
               <div className="relative z-10">
                 <Send className="h-16 w-16 mx-auto mb-6 text-white/80" />
-                <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                  {language === 'fa' ? 'بیایید پروژه شما را شروع کنیم!' : 'Let\'s Start Your Project!'}
+                <h3 className={`text-2xl md:text-3xl font-bold mb-4 'font-estedad'`}>
+                  بیایید پروژه شما را شروع کنیم!
                 </h3>
-                <p className={`text-white/90 mb-8 max-w-2xl mx-auto text-lg ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                  {language === 'fa'
-                    ? 'هر ایده‌ای دارید، من می‌توانم آن را به واقعیت تبدیل کنم. همین امروز شروع کنیم!'
-                    : 'Whatever your idea is, I can bring it to life. Let\'s start today!'
-                  }
+                <p className={`text-white/90 mb-8 max-w-2xl mx-auto text-lg font-estedad`}>
+                     هر ایده‌ای دارید، من می‌توانم آن را به واقعیت تبدیل کنم. همین امروز شروع کنیم!
                 </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <StarBorder
-                    as="a"
-                    href="mailto:contact@example.com"
-                    color="rgba(255,255,255,0.3)"
-                    speed="4s"
-                  >
-                    <span className={`flex items-center space-x-2 rtl:space-x-reverse font-medium ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                      <Mail className="h-5 w-5" />
-                      <span>{language === 'fa' ? 'ارسال ایمیل' : 'Send Email'}</span>
-                    </span>
-                  </StarBorder>
-
-                  <StarBorder
-                    as="a"
-                    href="https://wa.me/981234567890"
-                    color="rgba(255,255,255,0.3)"
-                    speed="4s"
-                  >
-                    <span className={`flex items-center space-x-2 rtl:space-x-reverse font-medium ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                      <MessageCircle className="h-5 w-5" />
-                      <span>{language === 'fa' ? 'چت کنیم' : 'Let\'s Chat'}</span>
-                    </span>
-                  </StarBorder>
-                </div>
               </div>
             </div>
           </motion.div>

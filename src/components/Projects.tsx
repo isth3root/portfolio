@@ -2,9 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { translations } from '../utils/translations';
-import { ExternalLink, Code, Palette, Shield } from 'lucide-react';
-import StarBorder from './bit/StarBorder';
-import ScrollReveal from './bit/ScrollReveal';
+import { ExternalLink, Code, Shield } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const { language, isRTL } = useLanguage();
@@ -13,10 +11,10 @@ const Projects: React.FC = () => {
     {
       titleKey: 'h3x3dTitle',
       descKey: 'h3x3dDesc',
-      link: 'https://h3x3d.com',
+      link: 'https://isth3root.github.io/h3x-3d/',
       color: 'from-blue-500 to-purple-600',
       icon: Code,
-      tech: ['React', 'Node.js', 'MongoDB', '3D Printing API']
+      tech: ['React', 'Framer', 'Jest', 'GSAP']
     },
     {
       titleKey: 'bimerzTitle',
@@ -24,7 +22,7 @@ const Projects: React.FC = () => {
       link: 'https://bimerz.ir',
       color: 'from-green-500 to-teal-600',
       icon: Shield,
-      tech: ['Next.js', 'TypeScript', 'Insurance APIs', 'Security']
+      tech: ['Radix UI', 'TypeScript', 'Express', 'Security', 'Helmet']
     }
   ];
 
@@ -38,9 +36,9 @@ const Projects: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <ScrollReveal>
-            {translations.projectsTitle[language]}
-          </ScrollReveal>
+          <h2 className='text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold text-white'>
+            پروژه ها
+          </h2>
           <p className={`text-gray-400 text-lg mt-4 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
             {language === 'fa' ? 'پروژه‌های اخیر و برجسته من' : 'My recent and featured projects'}
           </p>
@@ -95,18 +93,14 @@ const Projects: React.FC = () => {
                       </div>
                     </div>
 
-                    <StarBorder
-                      as="a"
+                    <a
                       href={project.link}
-                      color="rgba(255,255,255,0.3)"
-                      speed="3s"
-                      className="inline-block"
+                      target='blank'
+                      className="inline-flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium bg-black text-white px-4 py-2 rounded-lg border border-gray-800 hover:bg-gray-900 hover:border-gray-700 transition-all duration-300 hover:shadow-lg"
                     >
-                      <span className={`flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                        <span>{language === 'fa' ? 'مشاهده وب‌سایت' : 'View Website'}</span>
-                        <ExternalLink className="h-4 w-4" />
-                      </span>
-                    </StarBorder>
+                      <span>{language === 'fa' ? 'مشاهده وب‌سایت' : 'View Website'}</span>
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -123,26 +117,19 @@ const Projects: React.FC = () => {
           className="text-center mt-16"
         >
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
-            <Palette className="h-12 w-12 mx-auto mb-4 text-white/80" />
+            <Code className="h-12 w-12 mx-auto mb-4 text-white/80" />
             <h3 className={`text-2xl font-bold mb-4 ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-              {language === 'fa' ? 'پروژه بعدی شما چیست؟' : 'What\'s Your Next Project?'}
+              شاقول
             </h3>
             <p className={`text-white/90 mb-6 max-w-2xl mx-auto ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
               {language === 'fa'
-                ? 'ایده یا پروژه‌ای دارید؟ بیایید آن را به واقعیت تبدیل کنیم!'
-                : 'Have an idea or project? Let\'s bring it to life!'
+                ? 'پروژه جدید من که به زودی منتشر خواهد شد'
+                : 'My upcoming project that will be released soon'
               }
             </p>
-            <StarBorder
-              as="a"
-              href="#contact"
-              color="rgba(255,255,255,0.3)"
-              speed="4s"
-            >
-              <span className={`font-medium ${language === 'fa' ? 'font-estedad' : 'font-inter'}`}>
-                {language === 'fa' ? 'شروع کنیم' : 'Let\'s Get Started'}
-              </span>
-            </StarBorder>
+            <div className="inline-flex items-center justify-center px-8 py-3 font-medium bg-black text-white rounded-lg border border-gray-800">
+              {language === 'fa' ? 'به زودی' : 'Coming Soon'}
+            </div>
           </div>
         </motion.div>
       </div>

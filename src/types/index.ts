@@ -1,8 +1,7 @@
-export type Language = 'fa' | 'en';
+export type Language = 'fa';
 
 export interface Translation {
   [key: string]: {
     fa: string;
-    en: string;
   };
 }

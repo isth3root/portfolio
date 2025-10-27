@@ -6,7 +6,6 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
@@ -20,7 +19,6 @@ const App: React.FC = () => {
           <Projects />
           <Contact />
         </main>
-        <Footer />
       </div>
     </LanguageProvider>
   );

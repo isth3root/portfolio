@@ -2,83 +2,54 @@ import type { Translation } from '../types';
 
 export const translations: Translation = {
   name: {
-    fa: 'محمدامین سیدی',
-    en: 'Mohamad Amin Seyedi'
+    fa: 'محمدامین سیدی'
   },
   title: {
-    fa: 'توسعه‌دهنده وب',
-    en: 'Web Developer'
+    fa: 'توسعه‌دهنده وب'
   },
   heroSubtitle: {
-    fa: '۵ سال تجربه در توسعه وب | متخصص در ساخت وب‌سایت‌های مدرن و کاربردی',
-    en: '5 years of web development experience | Specialist in building modern and functional websites'
+    fa: '۵ سال تجربه در توسعه وب | متخصص در ساخت وب‌سایت‌های مدرن و کاربردی'
   },
   aboutTitle: {
-    fa: 'درباره من',
-    en: 'About Me'
-  },
-  aboutText: {
-    fa: 'من یک توسعه‌دهنده وب با ۵ سال تجربه هستم که عاشق ایجاد تجربه‌های کاربری عالی و راه‌حل‌های دیجیتال خلاقانه هستم. تخصص من در فناوری‌های مدرن وب از جمله React، Next.js، و Node.js است.',
-    en: 'I am a web developer with 5 years of experience who loves creating excellent user experiences and creative digital solutions. My expertise lies in modern web technologies including React, Next.js, and Node.js.'
+    fa: 'درباره من'
   },
   skillsTitle: {
-    fa: 'مهارت‌ها',
-    en: 'Skills'
+    fa: 'مهارت‌ها'
   },
   projectsTitle: {
-    fa: 'پروژه‌ها',
-    en: 'Projects'
+    fa: 'پروژه‌ها'
   },
   h3x3dTitle: {
-    fa: 'هکس۳دی - فروشگاه محصولات پرینت سه‌بعدی',
-    en: 'H3X3D - 3D Printed Products Store'
+    fa: 'هکس۳دی - فروشگاه محصولات پرینت سه‌بعدی'
   },
   h3x3dDesc: {
-    fa: 'فروشگاه آنلاین فروش محصولات ساخته‌شده با پرینت سه‌بعدی',
-    en: 'Online store for selling 3D printed products'
+    fa: 'فروشگاه آنلاین فروش محصولات ساخته‌شده با پرینت سه‌بعدی'
   },
   bimerzTitle: {
-    fa: 'بیمرز - وب‌سایت بیمه',
-    en: 'Bimerz - Insurance Website'
+    fa: 'بیمرز - وب‌سایت بیمه'
   },
   bimerzDesc: {
-    fa: 'وب‌سایت بیمه با دسترسی از طریق bimerz.ir',
-    en: 'Insurance website accessible via bimerz.ir'
+    fa: 'وب‌سایت بیمه با دسترسی از طریق bimerz.ir'
   },
   contactTitle: {
-    fa: 'تماس با من',
-    en: 'Contact Me'
-  },
-  contactText: {
-    fa: 'اگر نیاز به وب‌سایت دارید، من می‌توانم هر نوع وب‌سایتی برای شما بسازم. از وب‌سایت‌های ساده گرفته تا اپلیکیشن‌های پیچیده وب.',
-    en: 'If you need a website, I can build any kind of website for you. From simple websites to complex web applications.'
+    fa: 'تماس با من'
   },
   contactButton: {
-    fa: 'شروع کنیم',
-    en: 'Let\'s Get Started'
+    fa: 'شروع کنیم'
   },
   navHome: {
-    fa: 'خانه',
-    en: 'Home'
+    fa: 'خانه'
   },
   navAbout: {
-    fa: 'درباره',
-    en: 'About'
+    fa: 'درباره'
   },
   navSkills: {
-    fa: 'مهارت‌ها',
-    en: 'Skills'
+    fa: 'مهارت‌ها'
   },
   navProjects: {
-    fa: 'پروژه‌ها',
-    en: 'Projects'
+    fa: 'پروژه‌ها'
   },
   navContact: {
-    fa: 'تماس',
-    en: 'Contact'
-  },
-  toggleLang: {
-    fa: 'EN',
-    en: 'FA'
+    fa: 'تماس'
   }
 };
